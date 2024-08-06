@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Add a Pet - Pet Adoption Agency{% endblock %}
+
+{% block content %}
+<h1>Add a Pet</h1>
+<form method="POST" action="/add">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.name.label }} {{ form.name }}
+    </div>
+    <div class="form-group">
+        {{ form.species.label }} {{ form.species }}
+    </div>
+    <div class="form-group">
+        {{ form.photo_url.label }} {{ form.photo_url }}
+    </div>
+    <div class="form-group">
+        {{ form.age.label }} {{ form.age }}
+    </div>
+    <div class="form-group">
+        {{ form.notes.label }} {{ form.notes }}
+    </div>
+    <button type="submit" class="btn btn-primary">Add Pet</button>
+</form>
+{% endblock %}

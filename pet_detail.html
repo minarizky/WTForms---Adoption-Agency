@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}{{ pet.name }}{% endblock %}
+{% block content %}
+<h1>{{ pet.name }}</h1>
+<p>Species: {{ pet.species }}</p>
+{% if pet.photo_url %}
+<img src="{{ pet.photo_url }}" alt="{{ pet.name }}" width="200">
+{% endif %}
+<p>Age: {{ pet.age }}</p>
+<p>Notes: {{ pet.notes }}</p>
+
+<h2>Edit Pet</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.photo_url.label }}<br>
+        {{ form.photo_url(size=40) }}<br>
+        {{ form.notes.label }}<br>
+        {{ form.notes(rows=5, cols=40) }}<br>
+        {{ form.available.label }}<br>
+        {{ form.available() }}<br>
+    </div>
+    <button type="submit">Save Changes</button>
+</form>
+{% endblock %}
+
+{% include "_formhelpers.html" %}
